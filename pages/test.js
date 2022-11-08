@@ -1,10 +1,10 @@
-import TodoList from '../components/TodoList'
-import todoData from '../components/dummyData';
+import { Box } from "@mui/material"
+import TodoCarousel from "../component/TodoCarousel"
 const Test = () => {
     return (
-        <div>
-            <TodoList todoData={todoData}/>
-        </div>
+        <Box>
+            <TodoCarousel/>
+        </Box>
     )
 }
 

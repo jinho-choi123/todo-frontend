@@ -1,11 +1,15 @@
-import Button from '@mui/material/Button'
-
+import {Box, Grid} from '@mui/material';
+import TodoCard from '../component/TodoCard'
 const Home = () => {
+
+  //dummy data로 채워넣기.
+  
+
+
   return (
-    <div>
-        This is home page
-        <Button variant="contained">Hello World</Button>
-    </div>
+    <Box>
+      home page
+    </Box>
   )
 }
 
