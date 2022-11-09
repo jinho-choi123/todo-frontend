@@ -1,6 +1,9 @@
 import { CardContent, Card, Typography, FormGroup, FormControlLabel, Checkbox} from "@mui/material"
+import store from './redux/store.js';
 
-const TodoCard = ({cardTitle, todoData})=> {
+const TodoCard = ({cardTitle, todoDate})=> {
+    const todoData = store.getState().todoReducer.todos
+    
     const onStatusChange= (event) => {
         console.log(event.target.id)
         console.log(event.target.checked)
@@ -17,7 +20,7 @@ const TodoCard = ({cardTitle, todoData})=> {
       })
 
     return (
-        <Card sx={{minWidth:275}} variant="outlined">
+        <Card sx={{width:1/2}} variant="outlined">
             <CardContent>
                 <Typography variant="h6" component="div" align="center">
                     {cardTitle}

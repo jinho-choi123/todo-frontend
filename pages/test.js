@@ -1,9 +1,10 @@
 import { Box } from "@mui/material"
+import TodoCard from "../component/TodoCard"
 import TodoCarousel from "../component/TodoCarousel"
 const Test = () => {
     return (
         <Box>
-            <TodoCarousel/>
+            <TodoCard cardTitle="Today"/>
         </Box>
     )
 }
