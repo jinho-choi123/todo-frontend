@@ -1,7 +1,7 @@
 import { Box, Button, Item, Grid} from "@mui/material"
 import {useRef, useState} from 'react'
 import TodoCard from "./TodoCard.js";
-import todoData from './todoData.js'
+import todoData from '../todoData.js'
 
 const TodoCarousel = () => {
 

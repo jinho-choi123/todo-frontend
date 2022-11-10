@@ -1,12 +1,14 @@
 import { Box } from "@mui/material"
-import TodoCard from "../component/TodoCard"
+import TodoCard from "../component/molecules/TodoCard"
 import useFetchTodos from "../utils/customHook/useFetchTodos"
 
 const Test = () => {
     const {todoData, loading, error} = useFetchTodos()
     console.log(todoData)
+    console.log(loading)
     return (
         <Box>
+            <TodoCard todoDate={new Date('2022-10-11')}/>
         </Box>
     )
 }
