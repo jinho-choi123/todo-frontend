@@ -1,25 +1,39 @@
-import { CardContent, FormControlLabel, FormGroup, Checkbox } from "@mui/material"
+import { CardContent, Box, FormControlLabel, FormGroup, Checkbox, Typography } from "@mui/material"
 import useStoredTodos from "../../utils/customHook/useStoredTodos"
 import { dateDiff } from "../../utils/dateUtils"
+import useUpdateTodo from "../../utils/customHook/useUpdateTodo"
 
 const TodoContent = ({todoDate}) => {
     const todoData = useStoredTodos(todoDate)
+    const {update, err, loading}= useUpdateTodo()
 
     const onStatusChange= (event) => {
-        console.log(event.target.id)
-        console.log(event.target.checked)
-    
         //change the data from store
-    
+        update({status: event.target.checked}, event.target.id)
       }
 
     const todoContent = todoData.map(({title, date, status, _id}) => {
         if(dateDiff(new Date(date), todoDate) == 0) {
-            console.log(date)
             if(status == true) {
-                return <FormControlLabel control={<Checkbox id={_id} defaultChecked onChange={onStatusChange}/>}/>
+                return (<Box key={_id}>
+                        <FormControlLabel control={<Checkbox 
+                        defaultChecked 
+                        onChange={onStatusChange}
+                        id={_id}
+                        />} 
+                        label={title}
+                        />
+                    </Box>)
             } else {
-                return <FormControlLabel control={<Checkbox id={_id} onChange={onStatusChange}/>} key={_id} label={title}/>
+                return (
+                    <Box key={_id}>
+                        <FormControlLabel control={<Checkbox 
+                        onChange={onStatusChange}
+                        id={_id}
+                        />} 
+                        label={title}
+                        />
+                    </Box>)
             }
         } else {
             return 
@@ -27,8 +41,10 @@ const TodoContent = ({todoDate}) => {
     })
 
     return (
-        <FormGroup>
+        <FormGroup className='content-wrapper'>
+            <Box className='todo-content'>
             {todoContent}
+            </Box>
         </FormGroup>
     )
 }

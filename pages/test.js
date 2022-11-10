@@ -4,8 +4,6 @@ import useFetchTodos from "../utils/customHook/useFetchTodos"
 
 const Test = () => {
     const {todoData, loading, error} = useFetchTodos()
-    console.log(todoData)
-    console.log(loading)
     return (
         <Box>
             <TodoCard todoDate={new Date('2022-10-11')}/>

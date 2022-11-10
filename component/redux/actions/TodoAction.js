@@ -17,7 +17,7 @@ export const refreshTodo = (payload) => ({
     payload: payload 
 })
 
-export const markTodo = (payload) => ({
-    type: types.MARK_TODO,
+export const updateTodo = (payload) => ({
+    type: types.UPDATE_TODO,
     payload: payload 
 })

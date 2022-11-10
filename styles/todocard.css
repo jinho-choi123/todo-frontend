@@ -1,0 +1,9 @@
+.todo-content{
+    flex-direction: column;
+    display: flex;
+    align-items: left;
+}
+
+.content-wrapper{
+    align-items: center
+}

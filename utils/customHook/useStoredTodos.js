@@ -7,7 +7,6 @@ const useStoredTodos = ({todoDate}) => {
 
     useEffect(() => {
         setTodoData(todos.filter(todo => {
-            console.log(todo.date)
             return true
         }))
     }, [todos])

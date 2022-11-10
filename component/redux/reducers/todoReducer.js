@@ -21,16 +21,10 @@ const todoReducer = (state=initialState, action) => {
                 ...state, 
                 todos: action.payload 
             }
-        case types.MARK_TODO:
+        case types.UPDATE_TODO:
             const newTodo = [...state.todos];
-            newTodo.map((todo, index) => {
-                if(todo.todoId == action.payload) {
-                    todo.status = !todo.status 
-                    return todo 
-                } else {
-                    return todo 
-                }
-            })
+            const todoI = newTodo.findIndex(todo => todo._id == action.payload.todoId)
+            newTodo[todoI] = {...newTodo[todoI], ...action.payload.update}
             return {
                 ...state,
                 todos: newTodo

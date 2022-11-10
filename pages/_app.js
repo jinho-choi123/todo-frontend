@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import '../styles/carousel.css'
+import '../styles/todocard.css'
 import store from '../component/redux/store.js'
 import {Provider} from 'react-redux';
 
