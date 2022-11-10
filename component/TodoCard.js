@@ -2,12 +2,9 @@ import { CardContent, Card, Typography, FormGroup, FormControlLabel, Checkbox} f
 import store from './redux/store.js';
 
 const TodoCard = ({cardTitle, todoDate})=> {
-    const todoData = store.getState().todoReducer.todos
-    
     const onStatusChange= (event) => {
         console.log(event.target.id)
         console.log(event.target.checked)
-    
         //change the data from store
     
       }
