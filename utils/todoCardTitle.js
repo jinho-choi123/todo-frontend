@@ -1,4 +1,4 @@
-import { dateDiff } from "./dateUtils";
+import { dateDiff, dateFormatter } from "./dateUtils";
 
 const todoCardTitle = (todoDate) => {
     const today = new Date();
@@ -6,18 +6,10 @@ const todoCardTitle = (todoDate) => {
     var result = ""
 
     switch (datediff) {
-        case -1:
-            result = "Tomorrow"
         case 0:
-            result = "Today"
-        case 1:
-            result = "Yesterday"
+            result = `Today(${dateFormatter(new Date(todoDate))})`
         default:
-            if(datediff > 0) {
-                result = "+"+ datediff.toString() + " Days"
-            } else {
-                result = datediff.toString() + " Days"
-            }
+            result = dateFormatter(new Date(todoDate))
     }
     return result
 }
