@@ -6,6 +6,18 @@ const leftPad = (value) => {
     }
 }
 
+export const yesterday = (inputDate) => {
+    const newDate = new Date(inputDate)
+    newDate.setDate(newDate.getDate() - 1)
+    return newDate
+}
+
+export const tomorrow = (inputDate) => {
+    const newDate = new Date(inputDate)
+    newDate.setDate(newDate.getDate() + 1)
+    return newDate
+}
+
 export const dateFormatter = (inputDate) => {
     const year = inputDate.getFullYear();
     const month = leftPad(inputDate.getMonth() + 1)
@@ -18,8 +30,7 @@ export const dateCompare = (inputDate1, inputDate2) => {
     const year_compare = inputDate1.getFullYear() == inputDate2.getFullYear()
     const month_compare = inputDate1.getMonth() == inputDate2.getMonth()
     const day_compare = inputDate1.getDate() == inputDate2.getDate()
-
-    return (year_compare && month_compare && date_compare)
+    return ((year_compare && month_compare) && day_compare)
 }
 
 export const dateDiff = (inputDate1, inputDate2) => {

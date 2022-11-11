@@ -1,27 +1,23 @@
 import { Box, Button, Item, Grid} from "@mui/material"
-import {useRef, useState} from 'react'
-import TodoCard from "./TodoCard.js";
-import todoData from '../todoData.js'
+import {useEffect, useRef, useState} from 'react'
+import TodoCard from "../molecules/TodoCard";
+import { tomorrow, yesterday } from "../../utils/dateUtils.js";
 
 const TodoCarousel = () => {
-
     const carouselWindow = useRef();
     const [carouselIndex, setCarouselIndex] = useState(0);
+    const [todoDate, setTodoDate] = useState(new Date());
 
     const prevBtn = (event) => {
-        event.preventDefault();
-        if(carouselIndex > 0) {
-            setCarouselIndex(carouselIndex - 1);
-        }
-        console.log(carouselIndex)
+        setCarouselIndex(carouselIndex - 1);
+        setTodoDate(yesterday(todoDate))
+        
         return 0
     }
     const nextBtn = (event) => {
-        event.preventDefault();
-        if(carouselIndex <3) {
-            setCarouselIndex(carouselIndex + 1);
-        }
-        console.log(carouselIndex)
+        setCarouselIndex(carouselIndex + 1);
+        setTodoDate(tomorrow(todoDate))
+        console.log(tomorrow(todoDate))
         return 0
     }
 
@@ -45,18 +41,17 @@ const TodoCarousel = () => {
             >
                 <Grid
                     container
-                    spacing={2}
+                    spacing={1}
                 >
                     <Grid item xs={4}>
-                        <TodoCard cardTitle="Yesterday" todoData={todoData}/>
+                        <TodoCard todoDate={yesterday(todoDate)}/>
                     </Grid>
                     <Grid item xs={4}>
-                        <TodoCard cardTitle="Today" todoData={todoData}/>
+                        <TodoCard todoDate={todoDate}/>
                     </Grid>
                     <Grid item xs={4}>
-                        <TodoCard cardTitle="Tomorrow" todoData={todoData}/>
+                        <TodoCard todoDate={tomorrow(todoDate)}/>
                     </Grid>
-
                 </Grid>
             </Box>
 

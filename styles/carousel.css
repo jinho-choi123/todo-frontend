@@ -1,8 +1,7 @@
 .carousel-window{
-    background: coral;
+    background: rgb(225, 240, 213);
     width: 100%;
     height: auto;
-
     overflow: hidden;
 }
 

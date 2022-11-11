@@ -2,9 +2,10 @@ import { CardContent, Box, FormControlLabel, FormGroup, Checkbox, Typography } f
 import useStoredTodos from "../../utils/customHook/useStoredTodos"
 import { dateDiff } from "../../utils/dateUtils"
 import useUpdateTodo from "../../utils/customHook/useUpdateTodo"
+import genUid from "../../utils/uid"
 
 const TodoContent = ({todoDate}) => {
-    const todoData = useStoredTodos(todoDate)
+    const getTodos = useStoredTodos()
     const {update, err, loading}= useUpdateTodo()
 
     const onStatusChange= (event) => {
@@ -12,32 +13,31 @@ const TodoContent = ({todoDate}) => {
         update({status: event.target.checked}, event.target.id)
       }
 
+    const todoData = getTodos(todoDate)
+
     const todoContent = todoData.map(({title, date, status, _id}) => {
-        if(dateDiff(new Date(date), todoDate) == 0) {
-            if(status == true) {
-                return (<Box key={_id}>
-                        <FormControlLabel control={<Checkbox 
-                        defaultChecked 
-                        onChange={onStatusChange}
-                        id={_id}
-                        />} 
-                        label={title}
-                        />
-                    </Box>)
-            } else {
-                return (
-                    <Box key={_id}>
-                        <FormControlLabel control={<Checkbox 
-                        onChange={onStatusChange}
-                        id={_id}
-                        />} 
-                        label={title}
-                        />
-                    </Box>)
-            }
+        if(status == true) {
+            return (<Box key={_id}>
+                    <FormControlLabel control={<Checkbox 
+                    defaultChecked 
+                    onChange={onStatusChange}
+                    id={_id}
+                    />} 
+                    label={title}
+                    />
+                </Box>)
         } else {
-            return 
+            return (
+                <Box key={_id}>
+                    <FormControlLabel control={<Checkbox 
+                    onChange={onStatusChange}
+                    id={_id}
+                    />} 
+                    label={title}
+                    />
+                </Box>)
         }
+
     })
 
     return (
