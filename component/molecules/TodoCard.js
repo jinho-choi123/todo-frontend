@@ -4,10 +4,9 @@ import todoCardTitle from '../../utils/todoCardTitle'
 import { useEffect, useState } from "react"
 import useStoredTodos from "../../utils/customHook/useStoredTodos"
 import TodoContent from '../atoms/TodoContent'
+import AddTodo from '../atoms/AddTodo'
 
 const TodoCard = ({todoDate})=> {
-    console.log("todo card rerendering")
-    console.log(`date is ${todoDate}`)
     const cardTitle = todoCardTitle(todoDate)
 
     return (
@@ -18,6 +17,7 @@ const TodoCard = ({todoDate})=> {
                 </Typography>
                 <TodoContent todoDate={todoDate}/>
             </CardContent>
+            <AddTodo todoDate={todoDate}/>
         </Card>
     )
     

@@ -11,7 +11,7 @@ const useStoredTodos = () => {
             setTodoData(todos.filter(todo => {
                 return dateCompare(new Date(todo.date), new Date(todoDate))
             }))
-        }, [todoDate])
+        }, [todoDate, todos])
         return todoData
     }
     return usetodos

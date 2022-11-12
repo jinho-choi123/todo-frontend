@@ -5,19 +5,19 @@ import { tomorrow, yesterday } from "../../utils/dateUtils.js";
 
 const TodoCarousel = () => {
     const carouselWindow = useRef();
-    const [carouselIndex, setCarouselIndex] = useState(0);
     const [todoDate, setTodoDate] = useState(new Date());
 
+    const resetBtn = (event) => {
+        setTodoDate(new Date())
+        return 0
+    }
+
     const prevBtn = (event) => {
-        setCarouselIndex(carouselIndex - 1);
         setTodoDate(yesterday(todoDate))
-        
         return 0
     }
     const nextBtn = (event) => {
-        setCarouselIndex(carouselIndex + 1);
         setTodoDate(tomorrow(todoDate))
-        console.log(tomorrow(todoDate))
         return 0
     }
 
@@ -25,6 +25,7 @@ const TodoCarousel = () => {
         <Box>
         <Button variant="outlined" onClick={prevBtn}>prev</Button>
         <Button variant="outlined" onClick={nextBtn}>next</Button>
+        <Button variant="outlined" onClick={resetBtn}>reset</Button>
         <Box 
         className="carousel-window" 
         ref={carouselWindow}
@@ -37,7 +38,6 @@ const TodoCarousel = () => {
                 m: 1,
 
             }}
-            style={{transform: `translateX(-${carouselIndex * 1/3 * 100}vw)`}}
             >
                 <Grid
                     container
