@@ -2,7 +2,6 @@ import { CardContent, Card, Typography, FormGroup, FormControlLabel, Checkbox} f
 import {useSelector} from 'react-redux'
 import todoCardTitle from '../../utils/todoCardTitle'
 import { useEffect, useState } from "react"
-import useStoredTodos from "../../utils/customHook/useStoredTodos"
 import TodoContent from '../atoms/TodoContent'
 import AddTodo from '../atoms/AddTodo'
 
