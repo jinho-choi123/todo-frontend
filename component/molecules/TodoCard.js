@@ -16,8 +16,8 @@ const TodoCard = ({todoDate})=> {
                     {cardTitle}
                 </Typography>
                 <TodoContent todoDate={todoDate}/>
-            </CardContent>
-            <AddTodo todoDate={todoDate}/>
+    </CardContent>
+            <AddTodo todoDate={todoDate}/> 
         </Card>
     )
     

@@ -13,12 +13,12 @@ const AddTodo = ({todoDate}) => {
     const clickBtn = (event) => {
         event.preventDefault()
         console.log("clicked add button")
-        console.log(todoInput.current)
 
-        if(addStatus) {
+        if(addStatus && (todoInput.current.value != '')) {
             //add data to todo card
-            add({title: 'todoInput.current', date: todoDate})
-            // todoInput.current.value = ''
+            console.log(todoInput.current.value)
+            add({title: todoInput.current.value, date: todoDate})
+            todoInput.current.value = ''
         } else {
             setAddStatus(true)
         }
@@ -35,7 +35,7 @@ const AddTodo = ({todoDate}) => {
             <Box align='center'>
                 {addStatus? 
                 <Input inputProps={ariaLabel} inputRef={todoInput}></Input>:
-                ''}
+                <></>}
                 <Button fullWidth={true} onClick={clickBtn}>
                     <AddIcon />
                 </Button>
