@@ -10,13 +10,13 @@ const AddTodo = ({todoDate}) => {
     const ariaLabel = { 'aria-label': 'description' };
     const {add, err, loading} = useAddTodo();
 
+
     const clickBtn = (event) => {
         event.preventDefault()
         console.log("clicked add button")
 
         if(addStatus && (todoInput.current.value != '')) {
             //add data to todo card
-            console.log(todoInput.current.value)
             add({title: todoInput.current.value, date: todoDate})
             todoInput.current.value = ''
         } else {
@@ -24,6 +24,18 @@ const AddTodo = ({todoDate}) => {
         }
         return 0
     }
+
+    const onEnterPress = (event) => {
+        if(event.key == 'Enter'&& addStatus && (todoInput.current.value != '')) {
+            add({title: todoInput.current.value, date: todoDate})
+            todoInput.current.value = ''
+        } else if(event.key == 'Enter') {
+            setAddStatus(true)
+        }
+            return 0
+        }
+    
+
     const clickAway = () => {
 
         // todoInput.value = ''
@@ -34,7 +46,7 @@ const AddTodo = ({todoDate}) => {
         <ClickAwayListener onClickAway={clickAway}>
             <Box align='center'>
                 {addStatus? 
-                <Input inputProps={ariaLabel} inputRef={todoInput}></Input>:
+                <Input inputProps={ariaLabel} inputRef={todoInput} onKeyDown={onEnterPress}></Input>:
                 <></>}
                 <Button fullWidth={true} onClick={clickBtn}>
                     <AddIcon />

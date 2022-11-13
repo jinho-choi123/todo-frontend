@@ -10,7 +10,6 @@ const TodoCarousel = () => {
     const resetBtn = (event) => {
         setTodoDate(new Date())
     }
-
     const prevBtn = (event) => {
         setTodoDate(yesterday(todoDate))
     }
@@ -20,9 +19,9 @@ const TodoCarousel = () => {
 
     return (
         <Box>
-        <Button variant="outlined" onClick={prevBtn}>prev</Button>
-        <Button variant="outlined" onClick={nextBtn}>next</Button>
-        <Button variant="outlined" onClick={resetBtn}>reset</Button>
+            <Button variant="outlined" onClick={prevBtn}>prev</Button>
+            <Button variant="outlined" onClick={nextBtn}>next</Button>
+            <Button variant="outlined" onClick={resetBtn}>reset</Button>
         <Box 
         className="carousel-window" 
         ref={carouselWindow}
@@ -33,7 +32,6 @@ const TodoCarousel = () => {
                 flexDirection: 'row',
                 p: 1,
                 m: 1,
-
             }}
             >
                 <Grid
@@ -51,11 +49,9 @@ const TodoCarousel = () => {
                     </Grid>
                 </Grid>
             </Box>
-
         </Box>
         </Box>
     )
 }
-
 
 export default TodoCarousel
