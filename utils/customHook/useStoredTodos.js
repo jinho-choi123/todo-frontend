@@ -5,6 +5,9 @@ import { dateCompare } from "../dateUtils"
 const useStoredTodos = () => {
     const [todoData, setTodoData] = useState([])
     const todos = useSelector((state) => state.todoReducer.todos)
+    useEffect(() => {
+
+    }, [todos])
 
     const usetodos = (todoDate)=> {
         useEffect(() => {

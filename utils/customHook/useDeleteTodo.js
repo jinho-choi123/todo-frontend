@@ -1,18 +1,18 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
-import { createTodo } from '../../component/redux/actions/TodoAction'
+import {deleteTodo} from '../../component/redux/actions/TodoAction';
 
-const useAddTodo = () => {
+const useDeleteTodo = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const [err, setErr] = useState(null)
 
-    const add = (newTodo) => {
+    const remove = (todoId) => {
         setLoading(true)
-        axios.post('http://localhost:3000/api/todo/create', newTodo)
+        axios.delete('http://localhost:3000/api/todo/remove',{params: {todoid: todoId}} )
             .then((res)=> {
-                dispatch(createTodo(res.data))
+                dispatch(deleteTodo(res.data))
             })
             .catch((err) => {
                 console.log(err)
@@ -21,9 +21,9 @@ const useAddTodo = () => {
             .finally(() => {
                 setLoading(false)
             })
-    } 
+    }
 
-    return {add, err, loading}
+    return {remove, err, loading}
 }
 
-export default useAddTodo
+export default useDeleteTodo

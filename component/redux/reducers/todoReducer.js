@@ -12,10 +12,7 @@ const todoReducer = (state=initialState, action) => {
                 todos: [...state.todos, action.payload]
             }
         case types.DELETE_TODO:
-            return {
-                ...state, 
-                todos: state.todos.filter(todo => todo.todoId != action.payload)
-            }
+            return Object.assign({}, state, {todos: state.todos.filter(todo => todo.todoId != action.payload)})
         case types.REFRESH_TODO:
             return {
                 ...state, 
