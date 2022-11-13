@@ -3,19 +3,17 @@ import { dateDiff, dateFormatter } from "./dateUtils";
 
 const todoCardTitle = (todoDate) => {
     const today = new Date();
-    const [result, setResult] = useState('')
+    let cardTitle = ''
     const datediff = dateDiff(today, todoDate)
-    useEffect(() => {
-        switch (datediff) {
-            case 0:
-                setResult(`Today(${dateFormatter(new Date(todoDate))})`)
-                break;
-            default:
-                setResult(dateFormatter(new Date(todoDate)))
+    switch (datediff) {
+        case 0:
+            cardTitle = `Today(${dateFormatter(new Date(todoDate))})`
+            break;
+        default:
+            cardTitle = dateFormatter(new Date(todoDate))
         }
-    }, [])
-    
-    return result
+
+    return cardTitle
 }
 
 export default todoCardTitle

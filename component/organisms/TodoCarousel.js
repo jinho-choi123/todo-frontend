@@ -9,16 +9,13 @@ const TodoCarousel = () => {
 
     const resetBtn = (event) => {
         setTodoDate(new Date())
-        return 0
     }
 
     const prevBtn = (event) => {
         setTodoDate(yesterday(todoDate))
-        return 0
     }
     const nextBtn = (event) => {
         setTodoDate(tomorrow(todoDate))
-        return 0
     }
 
     return (
