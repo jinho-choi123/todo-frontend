@@ -1,7 +1,8 @@
-import { FormControl, InputLabel, Input, FilledInput, InputAdornment, IconButton, Box} from "@mui/material"
+import { FormControl, InputLabel,Button, Input, FilledInput, InputAdornment, IconButton, Box} from "@mui/material"
 import {useState} from 'react'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import LoginIcon from '@mui/icons-material/Login';
 
 const LoginForm = () => {
     const [values, setValues] = useState({
@@ -31,6 +32,8 @@ const LoginForm = () => {
         component="form"
         sx={{
         '& > :not(style)': { m: 1 },
+        border: 1,
+        display: 'flex',
         }}
         noValidate
         autoComplete="off"
@@ -59,6 +62,9 @@ const LoginForm = () => {
                     }
                 />
             </FormControl>
+            <IconButton>
+                <LoginIcon/>
+            </IconButton>
         </Box>
     )
 
