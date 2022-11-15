@@ -1,0 +1,4 @@
+.loginBox{
+    display: flex;
+    flex-direction: column;
+}
