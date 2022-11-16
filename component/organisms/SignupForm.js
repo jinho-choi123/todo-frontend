@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import ErrorShowup from '../molecules/ErrorShowup';
+import {useState} from 'react'
 
 function Copyright(props) {
   return (
@@ -29,13 +32,32 @@ function Copyright(props) {
 const theme = createTheme();
 
 const SignUpForm = () => {
+  const [err, setErr] = useState({status: false, msg: ''})
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      username: data.get('username'),
+      password1: data.get('password1'),
+      password2: data.get('password2')
     });
+    axios.post('http://localhost:3000/api/auth/create', {
+      username: data.get('username'),
+      password1: data.get('password1'),
+      password2: data.get('password2'),
+    })
+      .then((res) => {
+        console.log(res.data)
+        if(res.data.status == false) {
+          setErr({
+            status: true,
+            msg: res.data.msg
+          })
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   };
 
   return (
@@ -72,20 +94,26 @@ const SignUpForm = () => {
                 <TextField
                   required
                   fullWidth
-                  name="password"
+                  name="password1"
                   label="Password"
                   type="password"
-                  id="password"
+                  id="password1"
                   autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                <TextField
+                  required
+                  fullWidth
+                  name="password2"
+                  label="Retype Password"
+                  type="password"
+                  id="password2"
+                  autoComplete="new-password"
                 />
               </Grid>
             </Grid>
+            <ErrorShowup status={err.status} msg={err.msg}/>
             <Button
               type="submit"
               fullWidth
