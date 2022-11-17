@@ -13,6 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useState } from 'react';
+import {useRouter} from 'next/router'
+import ErrorShowup from '../molecules/ErrorShowup';
 
 function Copyright(props) {
   return (
@@ -30,6 +33,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 const LoginForm = () => {
+  const router = useRouter()
+  const [err, setErr] = useState({status: false, msg: ''})
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -38,9 +44,18 @@ const LoginForm = () => {
       password: data.get('password'),
     });
 
-    axios.post('http://localhost:3000/api/auth/login', data)
+    axios.post('http://localhost:3000/api/auth/login', {
+      username: data.get('username'),
+      password: data.get('password'),
+    })
       .then((res) => {
         console.log(res.data)
+        console.log("login success!!!")
+        router.push('/')
+      })
+      .catch((err) =>{
+        console.log(err)
+        setErr({status: true, msg: 'Invalid Credentials.'})
       })
   };
 
@@ -87,6 +102,7 @@ const LoginForm = () => {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            <ErrorShowup status={err.status} msg={err.msg}/>
             <Button
               type="submit"
               fullWidth

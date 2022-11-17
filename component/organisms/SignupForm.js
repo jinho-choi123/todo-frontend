@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import ErrorShowup from '../molecules/ErrorShowup';
 import {useState} from 'react'
+import {useRouter} from 'next/router'
 
 function Copyright(props) {
   return (
@@ -32,6 +33,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 const SignUpForm = () => {
+  const router = useRouter()
   const [err, setErr] = useState({status: false, msg: ''})
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,7 +43,7 @@ const SignUpForm = () => {
       password1: data.get('password1'),
       password2: data.get('password2')
     });
-    axios.post('http://localhost:3000/api/auth/create', {
+    axios.post('http://localhost:3000/api/auth/signup', {
       username: data.get('username'),
       password1: data.get('password1'),
       password2: data.get('password2'),
@@ -53,6 +55,8 @@ const SignUpForm = () => {
             status: true,
             msg: res.data.msg
           })
+        } else {
+          router.push('/login')
         }
       })
       .catch((err) => {

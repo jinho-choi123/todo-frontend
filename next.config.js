@@ -7,15 +7,10 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/login',
-        destination: '/',
+        source: '/login/again',
+        destination: '/login',
         permanent: true,
       }, 
-      {
-        source: '/signup',
-        destination: '/',
-        permanent: true,
-      },
     ]
   }
 }
