@@ -10,7 +10,6 @@ const AddTodo = ({todoDate}) => {
     const ariaLabel = { 'aria-label': 'description' };
     const {add, err, loading} = useAddTodo();
 
-
     const clickBtn = (event) => {
         event.preventDefault()
         console.log("clicked add button")
@@ -37,8 +36,6 @@ const AddTodo = ({todoDate}) => {
     
 
     const clickAway = () => {
-
-        // todoInput.value = ''
         setAddStatus(false)
     }
 

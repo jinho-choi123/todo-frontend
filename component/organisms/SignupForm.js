@@ -47,6 +47,8 @@ const SignUpForm = () => {
       username: data.get('username'),
       password1: data.get('password1'),
       password2: data.get('password2'),
+    }, { 
+      withCredentials: true 
     })
       .then((res) => {
         console.log(res.data)

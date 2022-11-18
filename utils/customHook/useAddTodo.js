@@ -12,7 +12,13 @@ const useAddTodo = () => {
         setLoading(true)
         axios.post('http://localhost:3000/api/todo/create', newTodo)
             .then((res)=> {
-                dispatch(createTodo(res.data))
+                if(!res.data.status && res.data.redirect=='/login') {
+                    console.log("neeed to redirect to login!!!!!!!!!!!")
+                    return router.push('/login')
+                } else {
+                    dispatch(createTodo(res.data))
+
+                }
             })
             .catch((err) => {
                 console.log(err)
