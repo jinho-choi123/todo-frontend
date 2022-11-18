@@ -17,6 +17,7 @@ const useFetchTodos = () => {
             withCredentials: true 
           })
         .then((res) => {
+            console.log(res)
             if(!res.data.status && res.data.redirect=='/login') {
                 console.log("neeed to redirect to login!!!!!!!!!!!")
                 return router.push('/login')
