@@ -12,7 +12,6 @@ const AddTodo = ({todoDate}) => {
 
     const clickBtn = (event) => {
         event.preventDefault()
-
         if(addStatus && (todoInput.current.value != '')) {
             //add data to todo card
             add({title: todoInput.current.value, date: todoDate})
@@ -20,7 +19,6 @@ const AddTodo = ({todoDate}) => {
         } else {
             setAddStatus(true)
         }
-        return 0
     }
 
     const onEnterPress = (event) => {

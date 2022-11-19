@@ -9,7 +9,7 @@ const Authenticator = ({children}) => {
         .then((res) => {
             if(!res.data.status){
                 router.push('/login')
-            }
+            } else {return}
         })
         .catch((err) => {
             console.log(err)

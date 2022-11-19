@@ -1,6 +1,4 @@
-import { Box, Card } from "@mui/material"
-import { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { Card } from "@mui/material"
 import ContentBox from "./ContentBox"
 
 const ContentList = ({todos}) => {
@@ -10,7 +8,7 @@ const ContentList = ({todos}) => {
         )
     })
     return (
-        <Card>
+        <Card className="contentList">
             {todoList}
         </Card>
     )

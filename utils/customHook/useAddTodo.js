@@ -4,20 +4,18 @@ import {useDispatch} from 'react-redux'
 import { createTodo } from '../../component/redux/actions/TodoAction'
 
 const useAddTodo = () => {
-    const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const [err, setErr] = useState(null)
 
-    const add = (newTodo) => {
+    const addTodo = (newTodo) => (dispatch) => {
+        console.log(newTodo)
         setLoading(true)
-        axios.post('http://localhost:3000/api/todo/create', newTodo)
+        axios.post('http://localhost:3000/api/todo/create', newTodo, { 
+            withCredentials: true 
+        })
             .then((res)=> {
-                if(!res.data.status && res.data.redirect=='/login') {
-                    return router.push('/login')
-                } else {
-                    dispatch(createTodo(res.data))
-
-                }
+                console.log(res)
+                dispatch(createTodo(res.data))
             })
             .catch((err) => {
                 console.log(err)
@@ -28,7 +26,7 @@ const useAddTodo = () => {
             })
     } 
 
-    return {add, err, loading}
+    return {addTodo, err, loading}
 }
 
 export default useAddTodo

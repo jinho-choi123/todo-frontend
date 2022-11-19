@@ -3,6 +3,7 @@ import TodoCard from "../component/molecules/TodoCard";
 import Authenticator from "../component/organisms/Authenticater";
 import useFetchTodo from "../utils/customHook/useFetchTodo";
 import { useDispatch } from "react-redux";
+import TodoCarousel from "../component/organisms/TodoCarousel";
 const Test = () => {
     const dispatch = useDispatch()
     const fetchTodo = useFetchTodo()
@@ -10,7 +11,7 @@ const Test = () => {
 
     return (<Box>
         <Authenticator>
-            <TodoCard todoDate={new Date()}/>
+            <TodoCarousel />
         </Authenticator>
     </Box>
     )
