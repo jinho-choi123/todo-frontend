@@ -21,7 +21,7 @@ const todoReducer = (state=initialState, action) => {
             }
         case types.UPDATE_TODO:
             const newTodo = [...state.todos];
-            const todoI = newTodo.findIndex(todo => todo._id == action.payload.todoId)
+            const todoI = newTodo.findIndex(todo => todo._id == action.payload._id)
             newTodo[todoI] = {...newTodo[todoI], ...action.payload.update}
             return {
                 ...state,

@@ -38,11 +38,7 @@ const SignUpForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      username: data.get('username'),
-      password1: data.get('password1'),
-      password2: data.get('password2')
-    });
+
     axios.post('http://localhost:3000/api/auth/signup', {
       username: data.get('username'),
       password1: data.get('password1'),
@@ -51,7 +47,6 @@ const SignUpForm = () => {
       withCredentials: true 
     })
       .then((res) => {
-        console.log(res.data)
         if(res.data.status == false) {
           setErr({
             status: true,
@@ -130,7 +125,7 @@ const SignUpForm = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

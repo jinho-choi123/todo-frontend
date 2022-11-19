@@ -1,30 +1,16 @@
-import { Box, Button, Item, Grid} from "@mui/material"
-import {useEffect, useRef, useState} from 'react'
-import TodoCard from "../molecules/TodoCard";
-import { tomorrow, yesterday } from "../../utils/dateUtils.js";
+import { Box} from "@mui/material"
+import useFetchTodo from '../../utils/customHook/useFetchTodo.js';
+import { useDispatch } from "react-redux";
 
 const TodoCarousel = () => {
-    const carouselWindow = useRef();
-    const [todoDate, setTodoDate] = useState(new Date());
-
-    const resetBtn = (event) => {
-        setTodoDate(new Date())
-    }
-    const prevBtn = (event) => {
-        setTodoDate(yesterday(todoDate))
-    }
-    const nextBtn = (event) => {
-        setTodoDate(tomorrow(todoDate))
-    }
+    const dispatch = useDispatch()
+    const fetchTodo = useFetchTodo()
+    dispatch(fetchTodo())
 
     return (
         <Box>
-            <Button variant="outlined" onClick={prevBtn}>prev</Button>
-            <Button variant="outlined" onClick={nextBtn}>next</Button>
-            <Button variant="outlined" onClick={resetBtn}>reset</Button>
         <Box 
         className="carousel-window" 
-        ref={carouselWindow}
         >
             <Box
             sx={{

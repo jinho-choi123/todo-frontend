@@ -3,8 +3,7 @@ import * as types from './ActionTypes.js';
 export const createTodo = (payload) => ({
     type: types.CREATE_TODO,
     payload: payload,
-    // payload: {title: ?, todoId: ?, date: ?, status: ?}
-
+    // payload: {content: ?, _id: ?, date: ?, status: ?}
 })
 
 export const deleteTodo = (payload) => ({

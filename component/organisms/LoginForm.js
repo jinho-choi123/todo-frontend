@@ -16,6 +16,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import {useRouter} from 'next/router'
 import ErrorShowup from '../molecules/ErrorShowup';
+import { useDispatch } from 'react-redux';
+import { setUsername } from '../redux/actions/AuthAction';
 
 function Copyright(props) {
   return (
@@ -35,14 +37,11 @@ const theme = createTheme();
 const LoginForm = () => {
   const router = useRouter()
   const [err, setErr] = useState({status: false, msg: ''})
+  const dispatch = useDispatch()
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
 
     axios.post('http://localhost:3000/api/auth/login', {
       username: data.get('username'),
@@ -51,9 +50,8 @@ const LoginForm = () => {
       withCredentials: true 
     })
       .then((res) => {
-        console.log(res.data)
-        console.log("login success!!!")
-        router.push('/')
+        dispatch(setUsername(res.data.username))
+        router.push('/test')
       })
       .catch((err) =>{
         console.log(err)
@@ -120,7 +118,7 @@ const LoginForm = () => {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

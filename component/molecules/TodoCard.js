@@ -1,10 +1,17 @@
 import { CardContent, Card, Typography, FormGroup, FormControlLabel, Checkbox} from "@mui/material"
-import todoCardTitle from '../../utils/todoCardTitle'
-import TodoContent from '../atoms/TodoContent'
 import AddTodo from '../atoms/AddTodo'
+import useTodoData from "../../utils/customHook/useTodoData"
+import ContentList from "../atoms/ContentList"
+import { dateFormatter } from "../../utils/dateUtils"
+import { useEffect, useState } from "react"
 
 const TodoCard = ({todoDate})=> {
-    const cardTitle = todoCardTitle(todoDate)
+    const filterTodos = useTodoData()
+    const [cardTitle, setCardTitle] = useState('')
+    const todoData = filterTodos(todoDate)
+    useEffect(() => {
+        setCardTitle(dateFormatter(todoDate))
+    }, [todoDate])
 
     return (
         <Card variant="outlined" className="todo-card">
@@ -12,7 +19,7 @@ const TodoCard = ({todoDate})=> {
                 <Typography variant="h6" component="div" align="center">
                     {cardTitle}
                 </Typography>
-                <TodoContent todoDate={todoDate}/>
+                <ContentList todos={todoData}/>
             </CardContent>
 
             <AddTodo todoDate={todoDate}/> 

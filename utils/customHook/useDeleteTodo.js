@@ -13,7 +13,6 @@ const useDeleteTodo = () => {
         axios.delete('http://localhost:3000/api/todo/remove',{params: {todoid: todoId}} )
             .then((res)=> {
                 if(!res.data.status && res.data.redirect=='/login') {
-                    console.log("neeed to redirect to login!!!!!!!!!!!")
                     return router.push('/login')
                 } else {
                     dispatch(deleteTodo(res.data))

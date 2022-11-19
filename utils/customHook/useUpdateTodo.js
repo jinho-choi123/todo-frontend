@@ -16,7 +16,6 @@ import { updateTodo } from '../../component/redux/actions/TodoAction'
         })
             .then((res) => {
                 if(!res.data.status && res.data.redirect=='/login') {
-                    console.log("neeed to redirect to login!!!!!!!!!!!")
                     return router.push('/login')
                 } else {
                     dispatch(updateTodo({todoId: todoId, update: newTodo}))

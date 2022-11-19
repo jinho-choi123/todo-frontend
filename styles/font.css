@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: local("notosans");
+    src: url("./fonts/NotoSans/NotoSans-Regular.ttf") format("truetype");
+}

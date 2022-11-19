@@ -12,7 +12,6 @@ const AddTodo = ({todoDate}) => {
 
     const clickBtn = (event) => {
         event.preventDefault()
-        console.log("clicked add button")
 
         if(addStatus && (todoInput.current.value != '')) {
             //add data to todo card
