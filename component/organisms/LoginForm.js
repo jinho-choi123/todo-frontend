@@ -46,8 +46,6 @@ const LoginForm = () => {
     axios.post('http://localhost:3000/api/auth/login', {
       username: data.get('username'),
       password: data.get('password'),
-    }, { 
-      withCredentials: true 
     })
       .then((res) => {
         dispatch(setUsername(res.data.username))
