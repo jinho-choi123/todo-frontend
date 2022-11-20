@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 
 const Authenticator = ({children}) => {
     const router = useRouter()
-    axios.get('http://localhost:3000/api/auth/verify', { 
+    axios.get('http://localhost:3000/api/auth/verify/', { 
         withCredentials: true 
         })
         .then((res) => {

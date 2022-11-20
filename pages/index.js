@@ -1,20 +1,17 @@
-import { Box } from "@mui/material"
-
+import {Box} from "@mui/material"
+import MenuBar from "../component/molecules/MenuBar";
+import Authenticator from "../component/organisms/Authenticater";
+import TodoCarousel from "../component/organisms/TodoCarousel";
 const Home = () => {
-  // const dispatch = useDispatch()
-  // const router = useRouter()
-  // const fetchTodo = useFetchTodo(router)
-  // const username = useSelector(state => state.authReducer.username)
 
-  // useEffect(() => {
-  //   dispatch(fetchTodo())
-  // }, [username])
-
-  return (
+    return (
     <Box>
-      {/* <TodoCarousel/> */}
+        <Authenticator>
+            <MenuBar/>
+            <TodoCarousel/>
+        </Authenticator>
     </Box>
-  )
+    )
 }
 
 export default Home

@@ -43,13 +43,13 @@ const LoginForm = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    axios.post('http://localhost:3000/api/auth/login', {
+    axios.post('http://localhost:3000/api/auth/login/', {
       username: data.get('username'),
       password: data.get('password'),
     })
       .then((res) => {
         dispatch(setUsername(res.data.username))
-        router.push('/test')
+        router.push('/')
       })
       .catch((err) =>{
         console.log(err)

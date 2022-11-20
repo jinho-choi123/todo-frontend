@@ -24,3 +24,77 @@ a {
     background: black;
   }
 }
+
+.carousel-window{
+  background: rgb(225, 240, 213);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-item{
+  display: inline-flex;
+  width: 350px;
+  height:250px;
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex: none;
+}
+
+.carousel-btn{
+  display: flex;
+  align-items: center;
+}
+
+.contentBox {
+  font-family: 'notosans';
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 0;
+  width: 100%;
+}
+
+.addBox {
+  padding-top: 1;
+  padding-bottom: 1;
+  font-size: 20;
+}
+
+.contentList {
+  border: 0;
+}
+
+.contentBoxWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.modalBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  outline: 0;
+  padding: 4;
+}
+
+.loginBox{
+  display: flex;
+  flex-direction: column;
+  border: 1;
+}
+
+.usernameForm{
+  width: 25ch;
+}
+
+.passwordForm{
+  margin: 1;
+  width: 25ch;
+}
+
+.menuBar {
+  background-color:rgb(93, 93, 93)
+}

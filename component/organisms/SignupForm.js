@@ -39,7 +39,7 @@ const SignUpForm = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    axios.post('http://localhost:3000/api/auth/signup', {
+    axios.post('http://localhost:3000/api/auth/signup/', {
       username: data.get('username'),
       password1: data.get('password1'),
       password2: data.get('password2'),

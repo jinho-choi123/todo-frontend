@@ -10,7 +10,7 @@ const useAddTodo = () => {
     const addTodo = (newTodo) => (dispatch) => {
         console.log(newTodo)
         setLoading(true)
-        axios.post('http://localhost:3000/api/todo/create', newTodo, { 
+        axios.post('http://localhost:3000/api/todo/create/', newTodo, { 
             withCredentials: true 
         })
             .then((res)=> {

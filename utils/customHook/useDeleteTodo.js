@@ -8,7 +8,7 @@ const useDeleteTodo = () => {
 
     const remove = (todoId) => (dispatch) => {
         setLoading(true)
-        axios.delete('http://localhost:3000/api/todo/remove',{params: {todoid: todoId}}, { 
+        axios.delete('http://localhost:3000/api/todo/remove/',{params: {todoid: todoId}}, { 
             withCredentials: true 
         })
             .then((res)=> {

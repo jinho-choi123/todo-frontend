@@ -20,3 +20,8 @@ export const updateTodo = (payload) => ({
     type: types.UPDATE_TODO,
     payload: payload 
 })
+
+export const resetTodo = () => ({
+    type: types.RESET_TODO,
+    payload: {}
+})

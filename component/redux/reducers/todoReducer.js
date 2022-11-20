@@ -27,6 +27,12 @@ const todoReducer = (state=initialState, action) => {
                 ...state,
                 todos: newTodo
             }
+        case types.RESET_TODO:
+            return {
+                ...state, 
+                todos: [],
+                username: ''
+            }
         default:
             return state;
     }
