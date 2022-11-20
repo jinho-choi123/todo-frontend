@@ -5,9 +5,7 @@ import ContentBox from "./ContentBox"
 
 const ContentList = ({todos}) => {
     const dispatch = useDispatch()
-
     const {update, err, loading} = useUpdateTodo()
-
     const checkHandler = (event) => {
         const todoId = event.target.value;
         const status = event.target.checked;
