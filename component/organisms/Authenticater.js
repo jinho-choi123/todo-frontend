@@ -7,11 +7,13 @@ const Authenticator = ({children}) => {
         withCredentials: true 
         })
         .then((res) => {
+            console.log(res)
             if(!res.data.status){
                 router.push('/login')
-            } else {return}
+            } 
         })
         .catch((err) => {
+            console.log("got error from authenticator")
             console.log(err)
         })
 

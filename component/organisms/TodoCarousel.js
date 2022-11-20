@@ -1,16 +1,13 @@
 import { Box, Button, Grid} from "@mui/material"
 import useFetchTodo from '../../utils/customHook/useFetchTodo.js';
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { yesterday, tomorrow } from "../../utils/dateUtils.js";
 import TodoCard from "../molecules/TodoCard.js";
 
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io"
 const TodoCarousel = () => {
     const [todoDate, setTodoDate] = useState(new Date())
-    const dispatch = useDispatch()
-    const fetchTodo = useFetchTodo()
-    dispatch(fetchTodo())
 
     const shift = (LorR) => () => {
         if(LorR == 1) {
