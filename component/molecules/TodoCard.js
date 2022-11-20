@@ -1,4 +1,4 @@
-import { CardContent, Card, Typography, Box, Button, ClickAwayListener} from "@mui/material"
+import { CardContent, Card, Typography, Box, Button, ClickAwayListener, Badge} from "@mui/material"
 import useTodoData from "../../utils/customHook/useTodoData"
 import ContentList from "../atoms/ContentList"
 import { dateFormatter } from "../../utils/dateUtils"
@@ -48,6 +48,7 @@ const TodoCard = ({todoDate})=> {
                 <Typography variant="h6" component="div" align="center">
                     {cardTitle}
                 </Typography>
+                <ContentList todos={todoData}/>
                 {
                     addStatus?
                     <ClickAwayListener onClickAway={clickAway} pt={1} pb={1}>
@@ -58,7 +59,6 @@ const TodoCard = ({todoDate})=> {
                     :
                     <></>
                 }
-                <ContentList todos={todoData}/>
             </CardContent>
             <Button onClick={addTodoBtn}>plus</Button>
         </Card>

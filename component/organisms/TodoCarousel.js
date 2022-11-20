@@ -30,29 +30,27 @@ const TodoCarousel = () => {
             sx={{
                 display: 'flex',
                 flexDirection: 'row',
-                p: 1,
-                m: 1,
             }}
             >
                 <Grid
                     container
                     spacing={1}
                 >
-                    <Grid item xs={0.5} className="carousel-btn">
+                    <Grid item xs={0.7} className="carousel-btn">
                         <Button onClick={shift(-1)}>
                             <IoIosArrowDropleft size="50"/>
                         </Button>
                     </Grid>
-                    <Grid item xs={3.5}>
+                    <Grid item xs={3.3}>
                         <TodoCard todoDate={yesterday(todoDate)}/>
                     </Grid>
                     <Grid item xs={4}>
                         <TodoCard todoDate={todoDate}/>
                     </Grid>
-                    <Grid item xs={3.5}>
+                    <Grid item xs={3.3}>
                         <TodoCard todoDate={tomorrow(todoDate)}/>
                     </Grid>
-                    <Grid item xs={0.5} className="carousel-btn">
+                    <Grid item xs={0.7} className="carousel-btn">
                         <Button onClick={shift(1)} >
                             <IoIosArrowDropright onClick={shift(1)} size="50"/>
                         </Button>

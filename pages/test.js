@@ -1,5 +1,4 @@
 import {Box} from "@mui/material"
-import TodoCard from "../component/molecules/TodoCard";
 import Authenticator from "../component/organisms/Authenticater";
 import useFetchTodo from "../utils/customHook/useFetchTodo";
 import { useDispatch } from "react-redux";

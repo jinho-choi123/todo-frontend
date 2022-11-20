@@ -4,10 +4,9 @@ import {useDispatch} from 'react-redux'
 import { updateTodo } from '../../component/redux/actions/TodoAction'
 
  const useUpdateTodo = () =>{
-    const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const [err, setErr] = useState(null)
-    const update = (newTodo, todoId) => {
+    const update = (newTodo, todoId) => (dispatch) => {
         setLoading(true)
         axios.put('http://localhost:3000/api/todo/update', newTodo, {
             params: {
