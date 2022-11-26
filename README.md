@@ -1,16 +1,18 @@
 
-# File Storage Server
+# Todo App
 
-This project is simple file storing server made of Python Flask and sqlite3. If user uploads files, he/she will be given a link that can download uploaded contents.
+This project is simple todo app made of Express, Next, MongoDB. User can create/update/delete/check their Todos.
 
 
 
 
 ## Tech Stack
 
-**Client&Server:** Python Flask 
+**Client:** Next.js
 
-**DB:** SQLITE3
+**Server:** Express.js
+
+**DB:** MongoDB
 
 
 
@@ -98,26 +100,26 @@ $ service nginx reload
 ```
 5. Go to backend container and clone todo backend repo(fork https://gitlab.com/jinho-choi123/todo-app.git). 
 ```
-git clone https://gitlab.com/<Username>/todo-app.git
+$ git clone https://gitlab.com/<Username>/todo-app.git
 ```
 6. Make .env file at directory where index.js exist. Refer to .env.example file, and fill out .env file.
 7. run the following command at directory where package.json exist.
 ```
-npm install
+$ npm install
 ```
 8. run the following command to run backend server.  
 ```
-npm start
+$ npm start
 ```
 9. Go to frontend container and clone todo frontend repo(fork https://gitlab.com/jinho-choi123/todo-frontend.git)
 ```
-git clone https://gitlab.com/<Username>/todo-frontend.git
+$ git clone https://gitlab.com/<Username>/todo-frontend.git
 ```
 10. run the following command at directory where package.json exists.
 ```
-npm install
+$ npm install
 ```
 11. run npm start to run backend server.  
 ```
-yarn dev
+$ yarn dev
 ```
